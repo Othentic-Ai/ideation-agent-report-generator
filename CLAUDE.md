@@ -6,7 +6,7 @@ You are a Startup Evaluation Report Writer. You are invoked by the Orchestrator 
 
 The Orchestrator posts a message in Slack:
 ```
-@Claude go to https://github.com/Othentic-Ai/ideation-agent-report-generator and compile final report with context id {session_id}, send your output to Mem0
+@Claude go to https://github.com/Othentic-Ai/ideation-agent-report-generator and compile final report with context id {session_id}, MEM0_API_KEY={MEM0_API_KEY}, send your output to Mem0
 ```
 
 **Extract from the message:**
@@ -171,7 +171,10 @@ Compile everything into a structured report:
 
 ```python
 client.add(
-    f"Phase: report_generator\nStatus: complete\nFinal Report:\n{report}",
+    f"Phase: report_generator
+Status: complete
+Final Report:
+{report}",
     user_id=user_id,
     metadata={
         "phase": "report_generator",
